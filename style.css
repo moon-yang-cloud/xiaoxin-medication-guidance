@@ -1,0 +1,380 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --pink: #e91e63;
+    --pink-light: #fce4ec;
+    --purple: #9c27b0;
+    --purple-light: #f3e5f5;
+    --radius: 16px;
+    --shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e8eaf6 100%);
+    min-height: 100vh;
+    padding: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== 头部 ===== */
+.header {
+    text-align: center;
+    padding: 28px 16px 22px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+}
+.header h1 {
+    font-size: clamp(1.4em, 5vw, 1.8em);
+    color: var(--pink);
+    margin-bottom: 4px;
+}
+.header .subtitle {
+    color: #999;
+    font-size: clamp(0.78em, 2.5vw, 0.88em);
+}
+
+/* ===== 搜索框 ===== */
+.search-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+}
+.search-box label {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.input-row {
+    display: flex;
+    gap: 8px;
+}
+.search-box input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    font-size: 16px; /* 防止iOS缩放 */
+    outline: none;
+    transition: border-color 0.3s;
+    min-width: 0;
+}
+.search-box input:focus {
+    border-color: var(--pink);
+}
+.btn-search {
+    padding: 11px 18px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9em;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn-search:active {
+    transform: scale(0.96);
+}
+.quick-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.quick-tags span {
+    padding: 5px 11px;
+    background: #f8f4fa;
+    border-radius: 14px;
+    font-size: 0.78em;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+.quick-tags span:hover, .quick-tags span:active {
+    background: var(--pink-light);
+    color: var(--pink);
+}
+
+/* ===== 导航Tab ===== */
+.nav-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.nav-tab {
+    padding: 7px 14px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 0.82em;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:hover, .nav-tab.active {
+    background: var(--pink);
+    color: white;
+    border-color: var(--pink);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== 卡片 ===== */
+.card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.3s ease;
+    overflow: hidden;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.card-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+.sym-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+.sym-tag {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.74em;
+}
+
+/* ===== 用药组合 ===== */
+.combo-box {
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #f8bbd0;
+}
+.combo-title {
+    font-size: 0.88em;
+    font-weight: 600;
+    color: #ad1457;
+    margin-bottom: 8px;
+}
+.combo-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.combo-pill {
+    background: white;
+    border: 1px solid #f48fb1;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.82em;
+    color: #880e4f;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.combo-pill .pill-order {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pink);
+    color: white;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    font-size: 0.7em;
+    flex-shrink: 0;
+}
+.combo-note {
+    font-size: 0.82em;
+    color: #555;
+    line-height: 1.55;
+}
+.combo-warn {
+    font-size: 0.8em;
+    color: #c62828;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* ===== 对比表 ===== */
+details {
+    margin-bottom: 12px;
+}
+details summary {
+    cursor: pointer;
+    font-size: 0.82em;
+    color: #999;
+    padding: 4px 0;
+    -webkit-tap-highlight-color: transparent;
+}
+details summary:hover { color: var(--pink); }
+.tbl-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 8px;
+}
+table.med-tbl {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    border: 1px solid #f0f0f0;
+    border-radius: 9px;
+    overflow: hidden;
+}
+.med-tbl thead {
+    background: linear-gradient(135deg, var(--pink-light), var(--purple-light));
+}
+.med-tbl th {
+    padding: 8px 8px;
+    font-weight: 600;
+    color: #666;
+    text-align: left;
+    white-space: nowrap;
+}
+.med-tbl td {
+    padding: 8px 8px;
+    border-top: 1px solid #f5f5f5;
+    vertical-align: top;
+    line-height: 1.4;
+}
+.med-tbl tr:hover td { background: #fafafa; }
+.med-tbl .name { font-weight: 600; color: #c2185b; }
+.p1 { background: #ffcdd2; color: #b71c1c; padding: 1px 6px; border-radius: 8px; font-size: 0.76em; font-weight: 600; white-space: nowrap; }
+.p2 { background: #ffe0b2; color: #e65100; padding: 1px 6px; border-radius: 8px; font-size: 0.76em; font-weight: 600; white-space: nowrap; }
+.p3 { background: #c8e6c9; color: #1b5e20; padding: 1px 6px; border-radius: 8px; font-size: 0.76em; font-weight: 600; white-space: nowrap; }
+.p4 { background: #f5f5f5; color: #666; padding: 1px 6px; border-radius: 8px; font-size: 0.76em; font-weight: 600; white-space: nowrap; }
+.danger-low { color: #2e7d32; }
+.danger-mid { color: #f57f17; }
+.danger-high { color: #e65100; font-weight: 600; }
+
+/* ===== 禁忌/提示 ===== */
+.contra-box {
+    background: #fff3e0;
+    border-radius: 10px;
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    font-size: 0.82em;
+    border: 1px solid #ffe0b2;
+    line-height: 1.55;
+}
+.contra-box h4 {
+    color: #e65100;
+    margin-bottom: 5px;
+    font-size: 0.88em;
+}
+.tips-box {
+    background: #e8f5e9;
+    border-radius: 10px;
+    padding: 10px 13px;
+    font-size: 0.82em;
+    color: #2e7d32;
+    line-height: 1.55;
+}
+.no-result {
+    text-align: center;
+    padding: 40px 20px;
+    color: #aaa;
+}
+.no-result .emoji { font-size: 2.2em; margin-bottom: 8px; }
+
+/* ===== 目录 ===== */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+}
+.catalog-item {
+    padding: 10px 11px;
+    background: #fafafa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+.catalog-item:hover, .catalog-item:active {
+    background: var(--pink-light);
+    transform: translateX(2px);
+}
+.catalog-item .ci-name { font-weight: 500; color: #333; font-size: 0.84em; }
+.catalog-item .ci-desc { font-size: 0.7em; color: #aaa; margin-top: 2px; }
+
+.footer {
+    text-align: center;
+    padding: 18px 16px;
+    color: #ccc;
+    font-size: 0.74em;
+}
+
+/* ===== 响应式 - 平板 ===== */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .container { max-width: 720px; }
+    body { padding: 20px; }
+    .card { padding: 18px; }
+    .catalog-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+
+/* ===== 响应式 - 手机 ===== */
+@media (max-width: 640px) {
+    body { padding: 10px; }
+    .header { padding: 22px 14px 18px; }
+    .header h1 { font-size: 1.4em; }
+    .search-box { padding: 14px; }
+    .input-row { flex-direction: column; }
+    .btn-search { width: 100%; padding: 12px; }
+    .card { padding: 14px; }
+    .combo-box { padding: 12px; }
+    .combo-pills { gap: 6px; }
+    .combo-pill { font-size: 0.78em; padding: 4px 10px; }
+    .med-tbl { font-size: 0.75em; }
+    .med-tbl th, .med-tbl td { padding: 6px 5px; }
+    .catalog-grid { grid-template-columns: 1fr 1fr; }
+    .nav-tabs { gap: 6px; }
+    .nav-tab { padding: 6px 12px; font-size: 0.8em; }
+}
+
+/* ===== 大屏幕 ===== */
+@media (min-width: 1025px) {
+    body { padding: 30px; }
+    .container { max-width: 860px; }
+    .card { padding: 20px; }
+}
+
+/* ===== 安全区适配(iPhone刘海屏) ===== */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    body {
+        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+}

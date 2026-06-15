@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>💕 小欣的用药指南</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>💕 小欣的用药指南</h1>
+<p class="subtitle">不舒服的时候翻一翻</p>
+</div>
+<div class="search-box">
+<label>哪里不舒服呀？</label>
+<div class="input-row">
+<input type="text" id="symptomInput" placeholder="告诉我症状，比如：喉咙痛、痛经、拉肚子..." onkeypress="if(event.key==='Enter')search()">
+<button class="btn-search" onclick="search()">帮我查</button>
+</div>
+<div class="quick-tags" id="quickTags"></div>
+</div>
+<div class="nav-tabs">
+<div class="nav-tab active" data-tab="search" onclick="switchTab('search')">🔍 查药</div>
+<div class="nav-tab" data-tab="contra" onclick="switchTab('contra')">⚠️ 禁忌</div>
+<div class="nav-tab" data-tab="catalog" onclick="switchTab('catalog')">📖 目录</div>
+</div>
+<div id="tab-search" class="tab-content active"><div id="results"></div></div>
+<div id="tab-contra" class="tab-content"><div id="contraContent"></div></div>
+<div id="tab-catalog" class="tab-content"><div id="catalogContent"></div></div>
+</div>
+<div class="footer">小欣要好好照顾自己哦，严重了记得去看医生 💕</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
