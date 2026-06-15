@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="用药指南">
+<meta name="theme-color" content="#e91e63">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="金毛.svg">
 <title>💕 小欣的用药指南</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -32,5 +38,10 @@
 <div class="footer">小欣要好好照顾自己哦，严重了记得去看医生 💕</div>
 <script src="data.js"></script>
 <script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+}
+</script>
 </body>
 </html>
